@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="/public/user/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!-- Title  -->
+    <title>HSH DESIGN FOR FUTURE | Sign up</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/public/user/img/core-img/favicon.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sign up</h1>
+      </div>
+      <div class="main">
+        <form action="/forget" method="POST" >
+          <span>
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Name" name="hoTen" required="" /> </span
+          ><br />
+          <span>
+            <i class="fas fa-venus-mars"></i>
+            <select id="gender" name="GioiTinh" required>
+                <option value="">Chọn giới tính</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+            </select>
+        </span>
+        <br/>
+          <span>
+            <i class="fa-solid fa-phone"></i>
+            <input type="text" placeholder="Phone" name="soDienThoai" required=""/> </span
+          ><br />
+          <span>
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="User name" name="taikhoan" required=""/> </span
+          ><br />
+          <span>
+            <i class="fa-solid fa-key"></i>
+            <input type="password" placeholder="password" name="matKhau" required=""/> 
+            </span
+          ><br />
+          
+        <span>
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" placeholder="Address" name="diaChi" required=""/> 
+            </span
+          ><br />
+        
+          <button type="submit"> <a  style="text-decoration: none; color: #fff;">Sign up</a></button>
+          <div class="forgot-password">
+            <a href="/login"><h3>Back</h3></a>
+          </div>
+         
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "mongodb":{
+       "username": "",
+       "password": "",
+       "database":"demo"
+    },
+    "jwt": {
+      "secret":"goK!pusp6ThEdURUtRenOwUhAsWUCLheBazl!uJLPlS8EbreWLdrupIwabRAsiBu"
+     }  
+ }
+ 

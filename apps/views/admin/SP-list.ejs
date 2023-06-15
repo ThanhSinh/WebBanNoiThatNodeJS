@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Accounts - Product Admin Template</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="/public/admin/css/fontawesome.min.css" />
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="/public/admin/css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="/public/admin/css/templatemo-style.css">
+    <!--
+      
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  <style>
+
+.tm-block {
+    padding: 0;
+}
+.tm-block1 {
+  padding: 40px;
+  -webkit-box-shadow: 1px 1px 5px 0 #455c71;
+  -moz-box-shadow: 1px 1px 5px 0 #455c71;
+  box-shadow: 1px 1px 5px 0 #455c71;
+  
+  height: 100%;
+  max-height: 450px;
+}
+  </style>
+  <body id="reportsPage">
+  <%-include('header');%>
+  
+  <div class="container mt-5">
+    <div class="row tm-content-row">
+      <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+        <div class="tm-bg-primary-dark tm-block tm-block-products">
+          <div class="tm-product-table-container">
+            <table class="table table-hover tm-table-small tm-product-table">
+                  
+                  <tr>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">NAME PRODUCT</th>
+                    <th scope="col">CATEGORY</th>
+                    <th scope="col">Manufacturer</th>
+                    <th scope="col">Describe</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Image 3D</th>
+                    <th scope="col">Change</th>
+                </tr>
+                    
+                  </thead>
+                  <tbody>
+                    <% for (var i = 0; i < products.length; i++) { %>
+                      
+                      <tr>
+                        <th scope="row"><input type="checkbox" /></th>
+                        <td class="tm-product-name" data-product-id="<%= products[i]._id %>"><%= products[i].TenSP %></td>
+                        <td><%= products[i].productTypeName %></td>
+                        <td><%= products[i].manufacturerName %></td>
+                        <td><%= products[i].Mota %></td>
+                        <td><%= products[i].soluong %></td>
+                        <td><%= products[i].Gia %></td>
+                        <td><img height="70px" width="70px" src="/public/user/img/product-imgs/<%= products[i].hinhanh %>" /></td>
+                        <td><img height="70px" width="70px" src="/public/3D/<%= products[i].hinhanh3D %>"  /></td>
+                        <td>
+                          <form method="post" action="/product/delete/<%= products[i]._id %>">
+                            <button class="btn btn-primary btn-block text-uppercase" type="submit">Xóa</button>
+                          </form>
+                        </td>
+                      </tr>
+                    <% } %>
+                  </tbody>
+                  
+                </table>
+                <% if (totalPages > 1) { %>
+                  <div>
+                    <span>Page <%= currentPage %> of <%= totalPages %></span>
+                    <% if (currentPage > 1) { %>
+                    <a href="./SP-list?page=<%= currentPage - 1 %>">Previous</a>
+                    <% } %>
+                    <% if (currentPage < totalPages) { %>
+                    <a href="./SP-list?page=<%= currentPage + 1 %>">Next</a>
+                    <% } %>
+                  </div>
+                  <% } %>
+              </div>
+              <!-- table container -->
+              <a
+                href="/product/add-product"
+                class="btn btn-primary btn-block text-uppercase mb-3">Add new product</a>
+              
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block1 tm-block-product-categories">
+              <h2 class="tm-block-title">Product Categories</h2>
+              <div class="tm-product-table-container">
+                <table class="table tm-table-small tm-product-table">
+                  <tbody>
+                    <% for (var i = 0; i < productTypeList.length; i++) { %>             
+                          <tr>
+                            <td class="tm-product-name">  <%= productTypeList[i].tenloai %></td>
+                            <td class="text-center">
+                              <a href="#" class="tm-product-delete-link">
+                                <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                              </a>
+                            </td>
+                          </tr>
+                       
+                          <% } %>
+                      
+                    
+                  </tbody>
+                </table>
+              </div>
+              <!-- table container -->
+              <button class="btn btn-primary btn-block text-uppercase mb-3">
+                Add new category
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="tm-footer row tm-mt-small">
+        <div class="col-12 font-weight-light">
+          <p class="text-center text-white mb-0 px-4 small">
+            Copyright &copy; <b>2018</b> All rights reserved. 
+            
+            Design: <a rel="nofollow noopener" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="/public/admin/js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="/public/admin/js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script>
+      $(function() {
+        // Add event listener to product name cells
+        $(".tm-product-name").on("click", function() {
+          // Get the product ID from the data attribute
+          const productId = $(this).data("product-id");
+          // Redirect to the edit page with the product ID as a parameter
+          window.location.href = "/product/edit/" + productId;
+        });
+      });
+      
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+  <% if (message) { %>
+    <p><%= message %></p>
+  <% } %>
+  <form method="post" action="/kh/login">
+    <label for="taikhoan">Username</label>
+    <input type="text" id="taikhoan" name="taikhoan" required>
+    <br>
+    <label for="matKhau">Password</label>
+    <input type="password" id="matKhau" name="matKhau" required>
+    <br>
+    <input type="submit" value="Login">
+  </form>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>HSH DESIGN FOR FUTURE | Home</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/public/user/img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/public/user/css/core-style.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Search Wrapper Area Start -->
+    <div class="search-wrapper section-padding-100">
+        <div class="search-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-content">
+                       
+                        <form action="/search" method="get">
+                            <input type="search" name="q" id="search" placeholder="Type your keyword...">
+                            <button type="submit"><img src="/public/user/img/core-img/search.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Wrapper Area End -->
+
+    <!-- ##### Main Content Wrapper Start ##### -->
+    <div class="main-content-wrapper d-flex clearfix">
+
+        <!-- Mobile Nav (max width 767px)-->
+        <div class="mobile-nav">
+            <!-- Navbar Brand -->
+            <div class="amado-navbar-brand">
+                <a href="index.html"><img src="/public/user//img/core-img/logo.png" alt=""></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="amado-navbar-toggler">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <%-include('header');%>
+
+        <div class="section-one">
+            <div class="container1">
+                <div class="row">
+                    
+                    <% if (typeof products !== 'undefined') {
+                        for (var i = 0; i < products.length; i++) { %>
+                          <!-- Single Catagory -->
+                          <div class="inner-box">
+                            <img src="/public/user/img/product-imgs/<%= products[i].hinhanh %>" alt="" width="300px" >
+                           <div class="product-name"><a href="/cart/<%= products[i]._id %>"><%= products[i].TenSP %></a></div>
+                            <div class="product-price"><a href="/cart/<%= products[i]._id %>"><%= products[i].Gia %> $</a></div>
+                        </div>
+                        <% }
+                      } else {
+                        // Handle case where products is not defined
+                        %>
+                        <p>No products available.</p>
+                      <% } %>               
+                </div>
+            </div>
+        </div> 
+    <!-- ##### Footer Area End ##### -->
+   
+    
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="/public/user/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/public/user/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/public/user/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/public/user/js/plugins.js"></script>
+    <!-- Active js -->
+    <script src="/public/user/js/active.js"></script>
+
+</body>
+
+</html>

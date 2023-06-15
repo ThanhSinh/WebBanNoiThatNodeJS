@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="/public/user/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <!-- Title  -->
+    <title>HSH DESIGN FOR FUTURE | Login</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/public/user/img/core-img/favicon.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Login</h1>
+      </div>
+      <div class="main">
+        <form action="/product/login" method="POST"> 
+          <span>
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Username" name="taikhoan" required="" /> </span
+          ><br />
+          <span>
+            <i class="fa-solid fa-key"></i>
+            <input type="password" placeholder="password" name="matKhau" required=""/> </span
+          ><br />
+          <button type="submit"> <a  style="text-decoration: none; color: #fff;">Login</a></button>
+          <div class="forgot-password">
+            <a href="/forget"><h3>Sign-up</h3></a>
+          </div>
+         
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
